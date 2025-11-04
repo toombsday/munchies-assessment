@@ -58,11 +58,3 @@ Open http://localhost:3000 in your browser.
 	- `src/app/components/` — UI components such as `RestaurantCard` and `FilterButton`
 - `public/` — static files, including `munchies-logo.svg`
 
-## Development notes
-
-- The `restaurants` page in this repo presently runs as a client component and fetches data from internal proxy API routes (`/api/restaurants` and `/api/filters`).
-
-## License
-
-This repository is provided as an assessment/sample. Add a license if publishing.
-
