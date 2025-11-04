@@ -23,6 +23,7 @@ export default function RestaurantCard({ restaurant }: { restaurant: Restaurant 
           fill
           className="object-cover"
           sizes="100%"
+          priority
         />
       </div>
       <div className="p-4">

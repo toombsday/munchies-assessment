@@ -34,6 +34,7 @@ export default function FilterButton({ filter, isActive, onClick }: FilterButton
           fill
           className="object-contain"
           sizes="100%"
+          priority
         />
       </div>
       <span className="text-sm font-medium">{filter.name}</span>
