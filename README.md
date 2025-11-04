@@ -1,37 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Munchies
 
-First, run the development server:
+Minimal Next.js + TypeScript app used for the assessment. This repository provides a small example app that lists restaurants and allows filtering by category.
+
+## Overview
+
+- Next.js (App Router) with TypeScript
+- Minimal UI components in `src/app/components`
+- Proxy API routes under `src/app/api` used to fetch remote data (with an in-memory caching layer)
+- Images served from `public/` and external images allowed via `next.config.ts`
+
+## Requirements
+
+- Node.js 18+ (recommended)
+- npm (or yarn/pnpm)
+
+## Setup
+
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Add environment variables (create a `.env.local` in the repo root)
+
+Example `.env.local`:
+
+```
+NEXT_PUBLIC_API_HOSTNAME=work-test-web-2024-eze6j4scpq-lz.a.run.app
+NEXT_PUBLIC_API_URL=https://work-test-web-2024-eze6j4scpq-lz.a.run.app/api
+```
+
+- `NEXT_PUBLIC_API_URL` is the base URL used by the proxy API routes (`/restaurants`, `/filters`).
+- `NEXT_PUBLIC_API_HOSTNAME` is used in `next.config.ts` for `images.remotePatterns` so `next/image` can load external images from that host.
+
+3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — run development server
+- `npm run build` — build for production
+- `npm run start` — run the built app
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+- `next.config.ts` — Next.js configuration (image domains / remotePatterns)
+- `src/app/` — app router pages and layout
+	- `src/app/page.tsx` — restaurants listing page
+	- `src/app/api/` — proxy API route handlers (`/api/restaurants`, `/api/filters`)
+	- `src/app/components/` — UI components such as `RestaurantCard` and `FilterButton`
+- `public/` — static files, including `munchies-logo.svg`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Development notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- The `restaurants` page in this repo presently runs as a client component and fetches data from internal proxy API routes (`/api/restaurants` and `/api/filters`).
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This repository is provided as an assessment/sample. Add a license if publishing.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# munchies-assessment
